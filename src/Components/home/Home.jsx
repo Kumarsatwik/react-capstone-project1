@@ -1,12 +1,17 @@
 import "./home.css";
 import Landing from "../../assests/landing.png";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 const Home = () => {
   const [name, setName] = useState(true);
   const [username, setUsername] = useState(true);
   const [email, setEmail] = useState(true);
   const [mobile, setMobile] = useState(true);
   const [checkbox, setCheckbox] = useState(false);
+
+  const [error, setError] = useState(false);
+
+  const navigate = useNavigate();
 
   const [data, setData] = useState({
     name: "",
@@ -21,22 +26,44 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (data.name != "") {
+    if (data.name == "") {
       setName(false);
+    } else {
+      setName(true);
     }
-    if (data.username != "") {
+    if (data.username == "") {
       setUsername(false);
+    } else {
+      setUsername(true);
     }
-    if (data.email != "") {
+    if (data.email == "") {
       setEmail(false);
+    } else {
+      setEmail(true);
     }
-    if (data.mobile != "") {
+    if (data.mobile == "") {
       setMobile(false);
+    } else {
+      setMobile(true);
     }
-    if (data.checkbox != true) {
-      setCheckbox(false);
+    if (!checkbox) {
+      setError(true);
+    } else {
+      setError(false);
     }
-    localStorage.setItem("data", data);
+
+    if (name && username && email && mobile && checkbox) {
+      // console.log(data.name, data.username, data.email, data.mobile);
+      const userDetails = {
+        name: data.name,
+        username: data.username,
+        email: data.email,
+        mobile: data.mobile,
+      };
+      // console.log(userDetails);
+      localStorage.setItem("data", userDetails);
+      navigate("/category");
+    }
   };
 
   return (
@@ -87,7 +114,7 @@ const Home = () => {
             />
             <label htmlFor="">Share my registration data with Superapp</label>
           </span>
-          {checkbox ? (
+          {error ? (
             <span className="error">Check this box if you want to proceed</span>
           ) : (
             ""
