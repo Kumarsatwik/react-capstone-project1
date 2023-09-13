@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import Category from "./CategoryList/Category";
-import SelectedCategory from "./selectedCategory/selectedCategory";
+import SelectedCategory from "./selectedCategory/SelectedCategory";
 
 const Index = () => {
   const [selectedCatgory, setSelectedCategory] = useState([]);
