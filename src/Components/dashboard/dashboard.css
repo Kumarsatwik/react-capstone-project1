@@ -1,0 +1,20 @@
+.dashboard {
+  padding: 2rem;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: black;
+}
+.dashboard .browse{
+  position: absolute;
+  bottom: 2%;
+  right: 5%;
+  outline: none;
+  border: none;
+  height: 20px;
+  width: 120px;
+  border-radius: 35px;
+  color: white;
+  background-color: green;
+  cursor: pointer;
+}

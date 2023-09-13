@@ -1,0 +1,44 @@
+.news__home {
+  height: 557px;
+  width: 363px;
+  background-color: white;
+  margin-left:5rem;
+  border-radius: 19px;
+  position:relative;
+}
+.news__heading{
+  height: 60%;
+  background-color: red;
+  
+
+}
+.news__heading img{
+    width: 100%;
+    height: 100%;
+}
+.news__title{
+    position: absolute;
+    top:43%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.622);
+    height: 6rem;
+    color: white;
+    width: 363px;
+    font-size: 17px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    padding:10px;
+    display: flex;
+    align-items: center;
+}
+
+.news__description{
+  
+  font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18.25px;
+    text-align: justify;
+    line-height: 29.51px;
+    padding:10px;
+    color:#272727;
+}

@@ -4,7 +4,10 @@ import {
   faTriangleExclamation,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
-const SelectedCategory = ({ selectedCatgory }) => {
+const SelectedCategory = ({ selectedCatgory, setSelectedCategory }) => {
+  const handleClick = (category) => {
+    setSelectedCategory(selectedCatgory.filter((item) => item !== category));
+  };
 
   return (
     <div className="selectedCategory">
@@ -15,7 +18,11 @@ const SelectedCategory = ({ selectedCatgory }) => {
       <div className="selectedCategory__list">
         {selectedCatgory.map((item, index) => {
           return (
-            <div className="items" key={index}>
+            <div
+              className="items"
+              key={index}
+              onClick={() => handleClick(item)}
+            >
               {item} <FontAwesomeIcon icon={faTimes} />{" "}
             </div>
           );

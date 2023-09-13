@@ -1,0 +1,85 @@
+.weather__home {
+  width: 40vw;
+  height: 25vh;
+  background-color: #101744;
+  margin: 10px 0 0 0;
+  border-radius: 33px;
+}
+.weather__date_time {
+  height: 30px;
+  background-color: #ff4ade;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: white;
+  border-top-right-radius: 33px;
+  border-top-left-radius: 33px;
+}
+.weather__status {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.weather__cloud img {
+  width: 100px;
+  height: 80px;
+}
+.weather__cloud p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: white;
+}
+.weather__temp {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: white;
+}
+.pressure {
+  display: flex;
+  margin-top: 15px;
+  gap: 10px;
+}
+.pressure p {
+  font-size: 15px;
+}
+.pressure img {
+  width: 20px;
+  height: 40px;
+}
+.weather__wind {
+  margin: 20px 0;
+}
+.wind__speed {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: white;
+  gap: 15px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.wind__speed img {
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+}
+.wind__humidity {
+  display: flex;
+  color: white;
+  gap: 15px;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+.wind__humidity img {
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+}

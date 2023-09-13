@@ -61,7 +61,7 @@ const Home = () => {
         mobile: data.mobile,
       };
       // console.log(userDetails);
-      localStorage.setItem("data", userDetails);
+      localStorage.setItem("userDetails", JSON.stringify(userDetails));
       navigate("/category");
     }
   };

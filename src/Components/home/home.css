@@ -3,6 +3,7 @@
   width: 100%;
   display: flex;
   position: relative;
+  overflow: hidden;
 }
 .banner {
   width: 50vw;

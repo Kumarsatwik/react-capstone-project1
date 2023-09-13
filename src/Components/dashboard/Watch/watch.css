@@ -1,0 +1,73 @@
+.timer__container {
+  position: relative;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 61.5vw;
+  background-color: #1e2343;
+  text-align: center;
+  color: white;
+  height: 34vh;
+  margin-top: 15px;
+  border-radius: 10px;
+  line-height: 1.5;
+  font-family: "DM Sans", sans-serif;
+  color: #949494;
+}
+
+.timer__display {
+  display: flex;
+  justify-content: space-around;
+  height: 30vh;
+  padding: 10px;
+}
+
+.timer__display p {
+  line-height: 2;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.timer__display img {
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+}
+
+.timer__display h2 {
+  font-size: 20px;
+  color: white;
+}
+
+.timer__control {
+  width: 50%;
+  position: relative;
+  left: 42%;
+  background-color: #ff6a6a;
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+  font-weight: 600;
+  border-radius: 10px;
+  bottom: 30%;
+  border: #ff6a6a;
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+
+.timer__control:hover {
+  transform: translateY(-1px);
+}
+
+.timer__display h1 {
+  display: flex;
+  color: white;
+  margin-top: 45px;
+}
+
+.timer__countdown {
+  padding-top: 12px;
+  color: white;
+}

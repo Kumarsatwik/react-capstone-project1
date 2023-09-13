@@ -1,7 +1,6 @@
 import "./card.css";
 
-const Card = ({ color, category, image, selected, onClick }) => {
-  console.log(color, category, image, selected, onClick);
+const Card = ({ color, category, image, checked, onClick }) => {
   const handleClick = () => {
     onClick(category);
   };
@@ -10,7 +9,7 @@ const Card = ({ color, category, image, selected, onClick }) => {
       className="Cards"
       style={{
         backgroundColor: color,
-        boxShadow: selected ? "0 0 5px 5px #11B800" : "none",
+        boxShadow: checked ? "0 0 5px 5px #11B800" : "none",
       }}
       onClick={handleClick}
     >

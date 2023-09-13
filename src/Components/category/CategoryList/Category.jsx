@@ -1,26 +1,23 @@
 import data from "./data";
 import "./category.css";
-import { useState } from "react";
 import Card from "./Card";
+import { useNavigate } from "react-router";
+
 const Category = ({ selectedCatgories, setSelectedCategory }) => {
-  const handleClick = (category) => {
-    if (selectedCatgories.includes(category)) {
-      setSelectedCategory(
-        selectedCatgories.filter((item) => item !== category)
-      );
+  const handleClick = (data) => {
+    if (selectedCatgories.includes(data)) {
+      setSelectedCategory(selectedCatgories.filter((item) => item !== data));
     } else {
-      setSelectedCategory([...selectedCatgories, category]);
+      setSelectedCategory([...selectedCatgories, data]);
     }
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const newData = JSON.stringify({
-      countCategory: selectedCatgories.length,
-      categories: selectedCatgories,
-    });
-    localStorage.setItem("categoryData", newData);
+    localStorage.setItem("categoryData", JSON.stringify(selectedCatgories));
+    navigate("/dashboard");
   };
 
   return (
@@ -33,7 +30,7 @@ const Category = ({ selectedCatgories, setSelectedCategory }) => {
               color={item.color}
               category={item.name}
               image={item.image}
-              selected={selectedCatgories.includes(item.name)}
+              checked={selectedCatgories.includes(item.name)}
               onClick={handleClick}
             />
           ))}
@@ -43,7 +40,7 @@ const Category = ({ selectedCatgories, setSelectedCategory }) => {
             onClick={handleSubmit}
             style={
               selectedCatgories.length >= 3
-                ? { visibility: "block" }
+                ? { display: "block" }
                 : { display: "none" }
             }
           >

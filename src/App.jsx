@@ -1,5 +1,7 @@
 import "./App.css";
+import Movie from "./Components/Movie/movie";
 import Index from "./Components/category/Index";
+import Dashboard from "./Components/dashboard/dashboard";
 import Home from "./Components/home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
@@ -9,6 +11,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/category" element={<Index />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/movie" element={<Movie />} />
         </Routes>
       </BrowserRouter>
     </>
