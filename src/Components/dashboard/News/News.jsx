@@ -3,6 +3,7 @@ import axios from "axios";
 import "./news.css";
 import NewsImage from "../../../assests/news.png";
 
+
 const News = () => {
   const [news, setNews] = useState({});
 
@@ -21,7 +22,6 @@ const News = () => {
 
   //   fetchData();
   // }, []);
-
   return (
     <div className="news__home">
       <div className="news__heading">

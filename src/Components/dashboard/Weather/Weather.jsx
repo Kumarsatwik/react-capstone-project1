@@ -11,7 +11,7 @@ const Weather = () => {
 
   function WeatherDetails() {
     return axios.get(
-      "http://api.weatherapi.com/v1/current.json?key=196fb60c2152414fa1652837230909&q=London&aqi=no"
+      "https://api.weatherapi.com/v1/current.json?key=196fb60c2152414fa1652837230909&q=London&aqi=no"
     )
     .then((response) => response.data)
     .catch((error) => {
