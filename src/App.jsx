@@ -1,5 +1,5 @@
 import "./App.css";
-import Movie from "./Components/movie/Movie";
+import Movie from "./Components/Movie/Movie";
 import Index from "./Components/category/Index";
 import Dashboard from "./Components/dashboard/dashboard";
 import Home from "./Components/home/Home";
