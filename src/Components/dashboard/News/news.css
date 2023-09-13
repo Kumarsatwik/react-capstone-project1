@@ -7,9 +7,7 @@
   position:relative;
 }
 .news__heading{
-  height: 60%;
-  background-color: red;
-  
+  height: 50%;
 
 }
 .news__heading img{
@@ -18,7 +16,7 @@
 }
 .news__title{
     position: absolute;
-    top:43%;
+    top:33%;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.622);
     height: 6rem;
@@ -36,9 +34,9 @@
   
   font-family: "Roboto", sans-serif;
     font-weight: 400;
-    font-size: 18.25px;
+    font-size: 13px;
     text-align: justify;
     line-height: 29.51px;
-    padding:10px;
+    padding: 10px 15px;
     color:#272727;
 }
