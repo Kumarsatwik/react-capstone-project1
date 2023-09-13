@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./news.css";
-const News = () => {
-  const [news, setNews] = useState([]);
 
-  function NewsDetails() {
-    return fetch(
-      "https://newsapi.org/v2/top-headlines?country=us&apiKey=71569a5a44ea4a309e9bb4a88274f720"
-    )
-      .then((response) => response.json())
-      .catch((error) => {
-        throw error;
-      });
-  }
+const News = () => {
+  const [news, setNews] = useState({});
+
   useEffect(() => {
-    Promise.all([NewsDetails()])
-      .then(([result1]) => {
-        console.log(result1.articles[1]);
-        setNews(result1.articles[1]);
-      })
-      .catch((error) => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://newsapi.org/v2/top-headlines?country=us&apiKey=71569a5a44ea4a309e9bb4a88274f720"
+        );
+        console.log(response.data);
+        setNews(response.data.articles[0]);
+      } catch (error) {
         console.error("Error Fetching data", error);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
   return (
     <div className="news__home">
