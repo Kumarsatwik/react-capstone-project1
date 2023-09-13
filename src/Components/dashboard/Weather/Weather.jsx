@@ -1,34 +1,33 @@
 import { useEffect, useState } from "react";
 import "./weather.css";
 import Air from "../../../assests/air.png";
-import Cloud from "../../../assests/cloud.png";
 import Temp from "../../../assests/temp.png";
 import Water from "../../../assests/water.png";
+import axios from 'axios';
 
 const Weather = () => {
   const [weather, setWeather] = useState([]);
   
 
   function WeatherDetails() {
-    return fetch(
+    return axios.get(
       "http://api.weatherapi.com/v1/current.json?key=196fb60c2152414fa1652837230909&q=London&aqi=no"
     )
-      .then((response) => response.json())
-      .catch((error) => {
-        throw error;
-      });
+    .then((response) => response.data)
+    .catch((error) => {
+      throw error;
+    });
   }
 
   useEffect(() => {
-    Promise.all([WeatherDetails()])
-      .then(([result1]) => {
-        console.log(result1);
-        setWeather(result1);
-        // setNews(result2.articles[0]);
-      })
-      .catch((error) => {
-        console.error("Error Fetching data", error);
-      });
+    WeatherDetails()
+    .then(result => {
+      console.log(result);
+      setWeather(result);
+    })
+    .catch(error => {
+      console.error("Error Fetching data", error);
+    });
   }, []);
 
   return (
