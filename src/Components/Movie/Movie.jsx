@@ -3,40 +3,22 @@ import "./movie.css";
 import ProfileImg from "../../assests/profileimage.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useGenres } from "./movieContext";
 
-function Movies() {
+const Movie = () => {
   const [moviesByCategory, setMoviesByCategory] = useState({});
-  const [genreList, setGenreList] = useState({});
+  const genresList = useGenres();
+  console.log(genresList);
   const categoryData = JSON.parse(localStorage.getItem("categoryData")) || [];
   const navigate = useNavigate();
   const moviesData = {};
 
-  const fetchGenresData = useCallback(async () => {
-    try {
-      const response = await axios.get(
-        "https://api.themoviedb.org/3/genre/movie/list",
-        {
-          params: {
-            language: "en-US",
-            api_key: "2f1d522f9a87d7458baceea9a5184900",
-          },
-        }
-      );
-
-      // setGenreList(response.data.genres);
-      localStorage.setItem("genres", JSON.stringify(response.data.genres));
-    } catch (error) {
-      console.error("Error fetching genre data:", error);
-    }
-  }, []);
-
   const fetchData = useCallback(async () => {
-    let genresId = JSON.parse(localStorage.getItem("genres"));
     for (let category of categoryData) {
-      let categoryId = genresId.find((genre) => genre.name === category);
+      let categoryId = genresList.find((genre) => genre.name === category);
       categoryId = categoryId ? categoryId.id : null;
       if (categoryId != null) {
-        const url = `https://api.themoviedb.org/3/discover/movie?with_genres=${categoryId}&language=en-US&year=2023&api_key=2f1d522f9a87d7458baceea9a5184900`;
+        const url = `https://api.themoviedb.org/3/discover/movie?with_genres=${categoryId}&language=en-US&year=2023&api_key=b706f376cdc27b8e286afd70a6888c1f`;
         try {
           const response = await axios.get(url);
           if (response.status == 200) {
@@ -50,17 +32,11 @@ function Movies() {
       }
     }
     setMoviesByCategory(moviesData);
-  }, []);
+  }, [categoryData, genresList]);
 
   useEffect(() => {
-    fetchGenresData();
     fetchData();
-  }, [fetchGenresData, fetchData]);
-
-  // useEffect(() => {
-  //   // console.log(genreList);
-  //   fetchData();
-  // }, [fetchData, genreList]);
+  }, [fetchData]);
 
   const handleClick = () => {
     navigate("/category");
@@ -93,6 +69,6 @@ function Movies() {
       </button>
     </div>
   );
-}
+};
 
-export default Movies;
+export default Movie;
